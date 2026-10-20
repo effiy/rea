@@ -1,14 +1,32 @@
-# Website translations
+---
+title: Website Translations
+tags: [website, translations, gettext, po, i18n, l10n]
+category: website
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Website Translations
 
 > A good website is like a good paper: easy to follow, clear and concise, with a clean, refined presentation.
 >
-> — N0zoM1z0
+> -- N0zoM1z0
+
+## 💡 概述
 
 The same standard applies in every language. A translation should help someone
 understand the example and try it. Clear, accurate wording matters more than a
 literal imitation of English sentences.
 
-## Edit a translation
+---
+
+## 🚀 快速开始
+
+### Edit a translation
 
 Use the Python environment in [the website README](../README.md). Pick a language
 from `languages.json`, then edit its `messages.po` in a text editor, Poedit or
@@ -38,7 +56,36 @@ buttons. Rebuild a running preview with `python3 scripts/prepare-website.py`.
 Before submitting a change, run `python3 scripts/website.py check`.
 Use `translations check --strict` to require every message to be translated.
 
-## Keep complete sentences and protected evidence
+---
+
+### Update the English source
+
+```sh
+python3 scripts/website.py sync
+python3 scripts/website.py translations extract
+python3 scripts/website.py translations status
+python3 scripts/website.py check
+```
+
+Extraction generates `messages.pot` and merges it into each PO catalog. Unchanged
+sentences keep their translations and reviewer comments. Changed sentences start
+empty; removed entries are retained as obsolete translation memory. Nothing
+silently accepts a guessed match. An editor's `fuzzy` entry remains pending until
+someone reviews it and removes the flag.
+
+If a page needs a missing or fuzzy message, its language route temporarily shows
+the complete English page with a visible notice. It has `noindex` and stays out
+of the sitemap and translated `hreflang` alternatives. Links from ready pages
+lead to ready editions or the English source. Completing the required entries
+restores the translated page and its search metadata at the next build. Runtime
+messages affect only pages that use their script; an untranslated dinosaur status
+does not turn the FAQ into an English fallback.
+
+---
+
+## 🏛️ 设计
+
+### Keep complete sentences and protected evidence
 
 Paragraphs remain complete translation units. Inline emphasis, links, code and
 literal commands use named placeholders:
@@ -77,41 +124,9 @@ result together. Keep recorded versions, milestone counts, unknowns and source
 attribution accurate. Blog essays can use a personal voice. Translated quotes
 should be identifiable as translations and retain a link to the original.
 
-## Update the English source
+---
 
-```sh
-python3 scripts/website.py sync
-python3 scripts/website.py translations extract
-python3 scripts/website.py translations status
-python3 scripts/website.py check
-```
-
-Extraction generates `messages.pot` and merges it into each PO catalog. Unchanged
-sentences keep their translations and reviewer comments. Changed sentences start
-empty; removed entries are retained as obsolete translation memory. Nothing
-silently accepts a guessed match. An editor's `fuzzy` entry remains pending until
-someone reviews it and removes the flag.
-
-If a page needs a missing or fuzzy message, its language route temporarily shows
-the complete English page with a visible notice. It has `noindex` and stays out
-of the sitemap and translated `hreflang` alternatives. Links from ready pages
-lead to ready editions or the English source. Completing the required entries
-restores the translated page and its search metadata at the next build. Runtime
-messages affect only pages that use their script; an untranslated dinosaur status
-does not turn the FAQ into an English fallback.
-
-`public/` remains the authored English site. `_site/` is disposable generated
-output. The sitemap discovers every ready edition automatically. Pages and
-Cloudflare publish this same artifact. No translation API runs during a build
-or in a reader's browser.
-
-Figure labels and accessibility descriptions are included in the catalogs under
-`figure:<filename>`. Keep labels short enough for the diagram. Interaction text
-is extracted directly from `t("message")` calls in `public/assets/*.js`, with
-source locations in the catalog. Keep named values instead of concatenating
-translated fragments.
-
-## Language coverage and initial translations
+### Language coverage and initial translations
 
 `languages.json` lists the same editions as the root README, with native names,
 standard language tags and text direction. English keeps its existing routes;
@@ -126,12 +141,33 @@ started from the Simplified Chinese draft and is maintained independently.
 Further language review and more natural phrasing are welcome. Submit the PO changes with
 the page and language you checked; a screenshot can help explain a layout issue.
 
-## Why gettext
+---
+
+### Why gettext
 
 PO catalogs have source references, reviewer comments and explicit pending
 translations. They can be edited locally and can later be connected to Weblate
 without replacing the site's translation format. This keeps one authored layout
 and a small offline build instead of maintaining nineteen HTML trees.
+
+---
+
+## ⚙️ 技术栈
+
+`public/` remains the authored English site. `_site/` is disposable generated
+output. The sitemap discovers every ready edition automatically. Pages and
+Cloudflare publish this same artifact. No translation API runs during a build
+or in a reader's browser.
+
+Figure labels and accessibility descriptions are included in the catalogs under
+`figure:<filename>`. Keep labels short enough for the diagram. Interaction text
+is extracted directly from `t("message")` calls in `public/assets/*.js`, with
+source locations in the catalog. Keep named values instead of concatenating
+translated fragments.
+
+---
+
+## 🔗 资源
 
 See [GNU gettext's PO format](https://www.gnu.org/software/gettext/manual/html_node/PO-File-Entries.html),
 [Weblate's translation workflows](https://docs.weblate.org/en/latest/workflows.html)

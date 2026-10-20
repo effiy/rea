@@ -1,8 +1,26 @@
-# Historical network upstream profiles
+---
+title: Historical Network Upstream Profiles
+tags: [network, har, mitmproxy, json, capture, schema]
+category: third-party
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Historical Network Upstream Profiles
+
+## 💡 概述
 
 REA uses unmodified upstream packages or a caller-supplied tool. The adapter
 code lives under `src/browser/history/` and `bridge/mitmproxy/`; this directory
 records provenance rather than vendoring a second parser implementation.
+
+---
+
+## ⚡ 功能
 
 | Upstream | Fixed profile | Use |
 | --- | --- | --- |
@@ -12,6 +30,10 @@ records provenance rather than vendoring a second parser implementation.
 | [AJV](https://github.com/ajv-validator/ajv) | npm 8.20.0 | Upstream schema validation |
 | [ajv-formats](https://github.com/ajv-validator/ajv-formats) | npm 3.0.1 | Upstream URI, timestamp and address formats |
 | [mitmproxy](https://github.com/mitmproxy/mitmproxy) | v12.2.3, commit `6c09d56e4c29a92f5ad01b03199977584b8ea14f`, MIT | Unchanged native `mitmproxy.io.tnetstring.load`; upstream `FlowWriter` / `SaveHar` for ephemeral verification fixtures |
+
+---
+
+## 🏛️ 设计
 
 The npm lockfile pins exact package versions and distribution integrity hashes;
 their original code and license files remain in the installed packages. Native

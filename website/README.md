@@ -1,8 +1,22 @@
-# REA website
+---
+title: REA Website
+tags: [website, static-site, cloudflare, github-pages, guides, case-studies, translations]
+category: website
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# REA Website
 
 > A good website is like a good paper: easy to follow, clear and concise, with a clean, refined presentation.
 >
-> — N0zoM1z0
+> -- N0zoM1z0
+
+## 💡 概述
 
 An English website with translated editions in every README language, explanatory
 figures, worked guides and Aegis, DX-Ball, Notion, TH04 and CTF investigations.
@@ -17,7 +31,11 @@ files work as ordinary static files; language switching needs no JavaScript.
 [style-guide.md](style-guide.md) explains the writing, page structure, figures,
 visual system and review process. Read it before adding or revising a page.
 
-## Local preview
+---
+
+## 🚀 快速开始
+
+### Local preview
 
 From the repository root:
 
@@ -41,7 +59,9 @@ To test the GitHub Pages prefix, use
 `python3 scripts/website.py serve --port 4174 --base-path /rea/` and open
 <http://127.0.0.1:4174/rea/>.
 
-## Contribute a page or correction
+---
+
+### Contribute a page or correction
 
 Edit the page's HTML in `public/`. Keep the question, evidence and result easy to
 follow. The writing and design guidance in [style-guide.md](style-guide.md)
@@ -123,7 +143,11 @@ compare them with [installation.md](../docs/installation.md), the relevant
 provider guide and the released package. A case study's pinned version and date
 describe its recorded investigation; update them only when repeating that work.
 
-## Pages
+---
+
+## 📁 目录
+
+### Pages
 
 - `public/index.html`: compact setup, reverse-engineering definition and purpose, manual/agent comparison, dinosaur and Calculator examples, and analysis-guide links.
 - `public/examples/dino-lab/index.html`: adjustable-speed mini-game, recovered rule, original-game check and browser analysis steps.
@@ -145,7 +169,11 @@ describe its recorded investigation; update them only when repeating that work.
 Navigation and assets use relative paths, so the same files work at the local
 root and a GitHub Pages project path such as `/rea/`.
 
-## Search and sharing metadata
+---
+
+## ⚡ 功能
+
+### Search and sharing metadata
 
 `https://rea.tools/` is the preferred public origin. Each content page has one
 absolute canonical URL for its own route, including its trailing slash. The
@@ -177,7 +205,7 @@ live response after publication. The mirrored `/rea/robots.txt` is not the
 hostname-root robots file for `morluto.github.io`; canonical HTML tags establish
 the mirror's preference.
 
-`public/assets/social-card.svg` is the maintained 1200 × 630 preview source.
+`public/assets/social-card.svg` is the maintained 1200 x 630 preview source.
 CairoSVG generates `social-card.png` for sharing clients. Commit the SVG, not the
 PNG. Both hosts receive the generated image in the same publishing artifact.
 The preview uses the site's typography, palette and direct headline.
@@ -208,7 +236,11 @@ See Google's [canonical guidance](https://developers.google.com/search/docs/craw
 and [sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap),
 and Cloudflare's [managed robots behavior](https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/).
 
-## Content
+---
+
+## 🏛️ 设计
+
+### Content
 
 Blog articles explain methods, decisions and ideas through project experience.
 Lead with a takeaway, then develop the argument through concrete examples.
@@ -270,7 +302,7 @@ saved choice applies before the first paint. That script owns the resolved
 palette, embedded SVGs and dinosaur canvas follow that choice. Keep the theme
 region in the page scaffold and run `sync` after editing its template.
 
-Reading pages share a small `↑ Top` link at the bottom right. It appears after
+Reading pages share a small `Top` link at the bottom right. It appears after
 scrolling and returns to the page header, with smooth scrolling when reduced
 motion is disabled. Keyboard activation returns focus to the first navigation
 link. Without JavaScript, the link stays visible and uses its `#top` anchor.
@@ -294,15 +326,15 @@ and complete private Evidence records are not website assets.
 
 The homepage starts with a short installation prompt and the ordinary setup
 command, then explains what reverse engineering is and why someone would use
-it. The manual/agent comparison introduces REA’s role before the examples.
+it. The manual/agent comparison introduces REA's role before the examples.
 Its opening links directly to Showcases and lets experienced readers skip to
 the analysis guides. A Blog link below that shortcut leads to reconstruction
 methods and project notes. Case-study previews live on the Showcases page.
 The closing section offers copyable project prompts, from cloning `rea.tools`
 to reconstructing a game from its executable. The experienced-reader shortcut
 lands directly on the guide links below these prompts.
-“Any questions?” offers FAQ, Discord and issue-report links. The page ends
-with “Join the community”, which links Discord and REA's X account.
+"Any questions?" offers FAQ, Discord and issue-report links. The page ends
+with "Join the community", which links Discord and REA's X account.
 Every content page's header and footer link GitHub, Discord and X.
 A right-side table of contents stays visible at widths of 1440px and above.
 On narrower screens it becomes a sticky, native disclosure; selecting a link
@@ -311,7 +343,7 @@ the reading position and marks the current link. Without JavaScript, the
 menu stays open and its fragment links remain usable.
 The comparison uses the same Calculator question on both sides: three
 selectable manual steps pair original instructions with an analyst illustration
-and thought bubbles; the agent side begins with “One prompt.” and a copyable
+and thought bubbles; the agent side begins with "One prompt." and a copyable
 question. Thoughts illustrate the reasoning behind the findings. The shared
 code-step script selects the initial note on load, so all three notes remain
 readable when JavaScript is disabled.
@@ -321,9 +353,9 @@ while the thought bubble and agent prompt remain close together.
 Dinosaur is the first example; Calculator follows as the native example.
 Both name the goal and the reason to inspect the program before showing the
 demo. A labeled finding explains what REA returned, and the flow distinguishes
-REA’s inspection from the agent’s interpretation and implementation.
-Its game precedes the prompt and code on small screens. Calculator’s excerpt
-comes from an installed model DLL; Microsoft’s public implementation supplies
+REA's inspection from the agent's interpretation and implementation.
+Its game precedes the prompt and code on small screens. Calculator's excerpt
+comes from an installed model DLL; Microsoft's public implementation supplies
 names and a crosscheck. Its controls apply the percentage rule to generic inputs.
 
 The dinosaur example connects an inspected running script to a new playable
@@ -360,7 +392,9 @@ the website.
 [evidence/notion-clipboard.md](evidence/notion-clipboard.md) records the REA
 package version, selected findings, source anchors and module-probe scope.
 
-## Aegis Android case study
+---
+
+### Aegis Android case study
 
 The Aegis case inspects the official 3.4.3 APK through REA 6.1.0. It follows
 the default login-code calculation from class search and display references to
@@ -375,7 +409,9 @@ without JavaScript. Keep the demo, selected code and
 [evidence/aegis-login-code.md](evidence/aegis-login-code.md) aligned. The APK and
 analysis-provider JAR remain official external downloads.
 
-## TH04 case study
+---
+
+### TH04 case study
 
 The TH04 case inspects the original PC-98 DOS angle helper through REA 4.1.0.
 Its selected instructions are paired with readable C++ and a source SVG of
@@ -384,7 +420,9 @@ records the fresh load-image/function evidence and separately credited TH04
 source and historical compiler replay. The figure illustrates the calculation;
 original game assets and executable bytes are not website downloads.
 
-## CTF case study
+---
+
+### CTF case study
 
 The DownUnderCTF 2023 case follows the official `ms_flag_checker` handout from
 prompt references to checking functions, compressed masks, equations and an
@@ -398,7 +436,11 @@ The mask SVG is drawn from the seventh decoded mask. It selects zero-based
 position 21 and compares its character code with 55 (`7`). Keep the figure,
 solver constants and evidence notes aligned when changing this case.
 
-## Cloudflare Workers
+---
+
+## ⚙️ 技术栈
+
+### Cloudflare Workers
 
 `wrangler.toml` serves `website/_site/` through Workers Static Assets. There is
 no Worker script or frontend framework. Before a preview or deployment, Wrangler
@@ -471,7 +513,11 @@ as the public website URL.
 Production publication uses the synchronized GitHub Actions workflow below.
 Local Wrangler commands above publish only the separate preview Worker.
 
-## Synchronized production publishing
+---
+
+## 📊 指标
+
+### Synchronized production publishing
 
 `.github/workflows/website-pages.yml` prepares `website/_site` once and deploys
 the same artifact to Cloudflare (`rea.tools`) and GitHub Pages. It is the sole
@@ -514,7 +560,7 @@ publishing job has been removed, so enabling this build workflow cannot publish
 the old site.
 
 After the site is approved and merged, select **GitHub Actions** under the
-repository's **Settings → Pages → Build and deployment**. Then run **Publish REA
+repository's **Settings -> Pages -> Build and deployment**. Then run **Publish REA
 website** from the Actions tab on `main`. This publishes both production hosts.
 The workflow uses the `github-pages` environment, the official Pages actions and
 Cloudflare's Wrangler action.
@@ -538,3 +584,15 @@ synchronized production releases.
 Local development does not change Pages settings or run the deployment workflow.
 Any environment protection rules are configured separately when publication is
 approved.
+
+---
+
+## 🔗 资源
+
+- [style-guide.md](style-guide.md) -- writing, page structure, figures, visual system and review process
+- [figures.md](figures.md) -- asset notes and prompts
+- [locales/README.md](locales/README.md) -- translation workflow and terminology
+- [evidence/](evidence/) -- case-study claims and provenance
+- [Google canonical guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
+- [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
+- [Cloudflare managed robots behavior](https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/)

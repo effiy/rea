@@ -1,9 +1,27 @@
-# pwndbg core context adapter
+---
+title: pwndbg Core Context Adapter
+tags: [pwndbg, gdb, core, debugging, elf, python]
+category: third-party
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# pwndbg Core Context Adapter
+
+## 💡 概述
 
 REA uses caller-supplied unchanged [pwndbg](https://github.com/pwndbg/pwndbg)
 2026.09.15, commit `55596aa676a2756efb8d67034f31675170eabe48`, and GDB.
 The original MIT license is retained in `LICENSE.md`. Engine source and its
 dependencies are not vendored or acquired by REA.
+
+---
+
+## 🏛️ 设计
 
 The adapter executes the selected upstream `gdbinit.py` with its original
 `__file__`, an explicitly selected existing virtual environment, and
@@ -18,6 +36,10 @@ values come from the independent pwntools/pyelftools decoder. Mapping candidates
 are derived; original pathnames do not identify current host files, and reported
 flags zero leave permissions unknown. REA does not expose upstream command
 execution, live attach, target launch, implicit executable pairing or updates.
+
+---
+
+## ⚙️ 技术栈
 
 Local actual verification uses Linux x64, GDB 13.1 and the exact upstream tag/build.
 Other GDB versions require their corresponding real workflow before being claimed.

@@ -1,10 +1,28 @@
-# Apple native inventory captures
+---
+title: Apple Native Inventory Captures
+tags: [macos, dyld, inventory, mach-o, nm, otool, dwarfdump]
+category: testing
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Apple Native Inventory Captures
+
+## 💡 概述
 
 These outputs were captured from the installed Apple tools on macOS arm64.
 The executable's filename in tool output is replaced with `fixture`. Import
 hexadecimal indexes are binding ordinals, while the export table contains image
 offsets. The absolute export is not relative to the image base. `nm` also reports
 each exported name, exercising the merge that must preserve richer dyld facts.
+
+---
+
+## 🚀 快速开始
 
 Generate the executable locally; do not check its binary into the repository:
 
@@ -26,6 +44,10 @@ xcrun dyld_info -exports /tmp/rea-inventory
 xcrun dwarfdump --uuid /tmp/rea-inventory
 xcrun vtool -show-build /tmp/rea-inventory
 ```
+
+---
+
+## ⚡ 功能
 
 Addresses, UUIDs and build versions may vary with the installed toolchain; the
 checked-in captures are the golden input. The test checks the virtual addresses

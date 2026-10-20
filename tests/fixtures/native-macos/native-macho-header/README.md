@@ -1,4 +1,18 @@
-# Source-built Mach-O header capture
+---
+title: Source-Built Mach-O Header Captures
+tags: [macos, mach-o, header, otool, fixture]
+category: testing
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Source-Built Mach-O Header Captures
+
+## 💡 概述
 
 Captured on macOS arm64 with the host Xcode tools from the adjacent `fixture.c`:
 

@@ -1,4 +1,18 @@
-# Offline ELF upstream profile
+---
+title: Offline ELF Upstream Profile
+tags: [pwntools, pyelftools, unicorn, elf, plt, python]
+category: third-party
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Offline ELF Upstream Profile
+
+## 💡 概述
 
 REA uses caller-supplied, unchanged Python packages. It vendors no pwntools,
 pyelftools or Unicorn implementation and never installs these dependencies.
@@ -8,6 +22,10 @@ pyelftools or Unicorn implementation and never installs these dependencies.
 | [pwntools](https://github.com/Gallopsled/pwntools) | 4.15.0; tag commit `3ad86ec5adab1abf9781ca7552a6f5d7cff7a33c` | MIT | ELF analysis and static mitigation/GOT/PLT heuristics |
 | [pyelftools](https://github.com/eliben/pyelftools) | 0.33 | Public domain | Original ELF sections, segments, symbols and relocations |
 | [Unicorn](https://github.com/unicorn-engine/unicorn) | 2.1.2 | GPL-2.0 | Upstream PLT emulation; distinct from executing the target as a host process |
+
+---
+
+## 🏛️ 设计
 
 The adapter checks all three runtime versions before importing the ELF engine.
 Original upstream code/licenses remain in the caller-selected environment.

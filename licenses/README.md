@@ -1,8 +1,24 @@
-# Preserved licenses and attribution
+---
+title: REA Preserved Licenses and Attribution
+tags: [rea, licenses, attribution, legal, third-party]
+category: legal
+created: "2024-01-01"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+# 💡 概述
 
 Start with [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) for the distinction
 between distributed material and separately obtained tools. These files retain
 upstream texts; they do not change [REA's MIT license](../LICENSE).
+
+---
+
+## 📁 目录
 
 | Files                                                  | Provenance and scope                                                                                                                                                                                                                             |
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -23,7 +39,11 @@ Additional preserved originals live at
 [pwndbg/LICENSE.md](../third_party/pwndbg/LICENSE.md), and
 [the website dinosaur notice](../website/public/assets/licenses/dinosaur.txt).
 
-## Collection scope and maintenance
+---
+
+## 🏛️ 设计
+
+### Collection scope and maintenance
 
 The inventory and runtime texts were prepared from the root lockfile. The
 collection downloaded the locked npm archives, checked their lockfile
@@ -52,3 +72,10 @@ runtime/component notices with the retained snapshots and update them if they
 differ. Do not assume that a compiler change leaves redistribution requirements
 unchanged. Preserve applicable originals with any additionally bundled engine;
 top-level reference copies alone may not cover its entire distribution.
+
+---
+
+## 🔗 资源
+
+- [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)
+- [REA's MIT license](../LICENSE)

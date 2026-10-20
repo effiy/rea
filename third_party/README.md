@@ -1,10 +1,28 @@
-# Upstream analysis engines
+---
+title: Upstream Analysis Engines
+tags: [third-party, upstream, engines, jadx, binwalk, unblob, android, firmware]
+category: third-party
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Upstream Analysis Engines
+
+## 💡 概述
 
 REA integrates existing tools through provider adapters. Upstream source remains
 unmodified and retains its own license; it is not copied into REA's domain or
 application code.
 
-## jadx-headless-mcp
+---
+
+## ⚡ 功能
+
+### jadx-headless-mcp
 
 - Source: <https://github.com/1013503897/jadx-headless-mcp>
 - Submodule: `third_party/jadx-headless-mcp`
@@ -32,7 +50,9 @@ and release identity together, exercise the adapter's producer regressions, and
 run the real APK CLI/MCP lane. Never attribute modified engine bytes to the
 audited source revision.
 
-## Public APK fixture
+---
+
+### Public APK fixture
 
 `npm run fixtures:android` (`scripts/fixtures/android/fetch.mjs`) downloads the audited engine and
 Appium ApiDemos v6.0.18 into ignored `_reference/apk-integration/`. Both downloads
@@ -41,7 +61,9 @@ are checked against fixed SHA-256 values. Fixture provenance is recorded in
 static analysis fixture: no emulator, device, SDK installation or app execution
 is needed. APKs and JARs are neither tracked nor included in npm packages.
 
-## Firmware engines
+---
+
+### Firmware engines
 
 | Engine | Source | Release | Pinned commit | License |
 | --- | --- | --- | --- | --- |

@@ -1,11 +1,29 @@
-# Captured format and protocol fixtures
+---
+title: Captured Format and Protocol Fixtures
+tags: [golden, fixtures, testing, format, protocol, mcp, xml]
+category: testing
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Captured Format and Protocol Fixtures
+
+## 💡 概述
 
 These are actual tool outputs, not records assembled to match the parser.
 `provenance.json` records the capture host, producer versions, source digests
 and immutable capture/expectation digests. Compiled binaries and catalogs are
 not committed.
 
-## Foundation archive
+---
+
+## ⚡ 功能
+
+### Foundation archive
 
 `keyed-archive/foundation.xml` is the XML representation of a binary archive
 written by Foundation `NSKeyedArchiver`, using the source-owned Swift fixture.
@@ -33,7 +51,9 @@ rm -rf "$capture_root"
 Review expected graph changes against the source and XML before updating the
 expectation or provenance. Tests never rewrite the golden.
 
-## Asset catalog
+---
+
+### Asset catalog
 
 `assetutil.json` is the unmodified output of `/usr/bin/assetutil --info` for an
 actual `actool` catalog. The source colorset defines `FixtureColor` with sRGB
@@ -54,7 +74,9 @@ The real E2E lane builds fresh catalogs and compares all their metadata against
 the live utility output. It does not compare volatile timestamps or producer
 versions against this historical capture.
 
-## MCP JSON-RPC request
+---
+
+### MCP JSON-RPC request
 
 `mcp-initialize.json` captures the `initialize` request emitted by the pinned
 `@modelcontextprotocol/client` 2.0.0 SDK on 2026-10-04. The client connected to

@@ -1,4 +1,18 @@
-# Source-built conformance fixtures
+---
+title: Source-Built Conformance Fixtures
+tags: [conformance, fixtures, testing, symbols, strings, elf, mach-o]
+category: testing
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Source-Built Conformance Fixtures
+
+## 💡 概述
 
 These sources are deliberately small semantic oracles for REA providers. Run
 `npm run verify:fixtures` on macOS or Linux to compile them into the ignored
@@ -9,6 +23,10 @@ ELF on Linux; Objective-C, Swift, and N-API-like fixtures remain macOS-only.
 
 Only source files are versioned. Generated binaries, generated large-fixture
 source, debug information, and manifests must remain under `build/`.
+
+---
+
+## ⚡ 功能
 
 `ghidra/inventory.c` is also compiled into temporary Linux ELF debug and
 stripped variants by `npm run verify:ghidra`. It fixes local functions, external

@@ -1,7 +1,36 @@
-# Ghidra conformance corpus
+---
+title: Ghidra Conformance Corpus
+tags: [ghidra, conformance, fixtures, elf, pe, mach-o]
+category: testing
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Ghidra Conformance Corpus
+
+## 💡 概述
 
 These source-owned fixtures are compiled at verification time; generated
 binaries and Ghidra projects are never committed.
+
+---
+
+## 🚀 快速开始
+
+`scripts/verify-real-ghidra.mjs` uses `cc`, `clang`, and `lld-link` by default;
+`REA_CC`, `REA_CLANG`, and `REA_LLD_LINK` can select alternate commands. The
+verifier requires the verified bring-your-own Ghidra 12.1.4 installation through
+`GHIDRA_INSTALL_DIR` and validates header classification before starting the
+provider. Provider admission accepts the rest of the 12.1.x line; this lane does
+not.
+
+---
+
+## ⚡ 功能
 
 - `../c/riscv.c` and `riscv-probe.S` produce source-owned RV32/RV64 ELF images
   with double-float ABI declarations and an independently known instruction.
@@ -33,12 +62,17 @@ binaries and Ghidra projects are never committed.
   projection; default Unix-socket transport, Windows, and the reported Amethyst
   artifact need separate verification. Fixture target code is never executed.
 
-`scripts/verify-real-ghidra.mjs` uses `cc`, `clang`, and `lld-link` by default;
-`REA_CC`, `REA_CLANG`, and `REA_LLD_LINK` can select alternate commands. The
-verifier requires the verified bring-your-own Ghidra 12.1.4 installation through
-`GHIDRA_INSTALL_DIR` and validates header classification before starting the
-provider. Provider admission accepts the rest of the 12.1.x line; this lane does
-not.
+- `relative-switch-signed.S` covers signed halfword offsets, the CBZ zero-entry
+  route, and selector biases of 0, 2 and 10 in the AArch64 jump-table lane. The
+  nonzero biases exercise overlapping and disjoint typed label/index ranges. REA
+  retains Ghidra's typed labels when the compared selector has an earlier register
+  definition; additional labels remain unknown until their relationship to the
+  typed switch selector can be proved. The oracle rejects extra numeric labels
+  and verifies each retained target against the source instruction immediate.
+
+---
+
+## 📊 指标
 
 Conformance compares semantic facts: provider/profile identity, function
 classification, resolved call edges, typed references, strings/xrefs, and CFG
@@ -47,11 +81,3 @@ bounded, and address-bearing; it never compares their text with Hopper. The
 callback fixture also proves that an unresolved targetless flow is not silently
 promoted to a direct callee. Every target runs in a separate owned project and
 must leave no process, socket, project, or runtime root after close.
-
-`relative-switch-signed.S` covers signed halfword offsets, the CBZ zero-entry
-route, and selector biases of 0, 2 and 10 in the AArch64 jump-table lane. The
-nonzero biases exercise overlapping and disjoint typed label/index ranges. REA
-retains Ghidra's typed labels when the compared selector has an earlier register
-definition; additional labels remain unknown until their relationship to the
-typed switch selector can be proved. The oracle rejects extra numeric labels
-and verifies each retained target against the source instruction immediate.

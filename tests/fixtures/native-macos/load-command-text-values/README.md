@@ -1,8 +1,26 @@
-# Native load-command text captures
+---
+title: Native Load-Command Text Captures
+tags: [macos, mach-o, load-command, otool, dylib, install-name]
+category: testing
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Native Load-Command Text Captures
+
+## 💡 概述
 
 These are actual `xcrun otool -l` captures of dylibs built from `fixture.c`
 with Apple clang. Only the owned output file path in each capture was replaced
 with `/owned/fixture.dylib`. No fixture binary is committed or executed.
+
+---
+
+## 🚀 快速开始
 
 For each install name `123 library.dylib`, `0x123 library.dylib`, `123`,
 `0x123`, and `ordinary.dylib`:
@@ -11,6 +29,10 @@ For each install name `123 library.dylib`, `0x123 library.dylib`, `123`,
 xcrun clang -dynamiclib fixture.c "-Wl,-install_name,$INSTALL_NAME" -o fixture.dylib
 xcrun otool -l fixture.dylib
 ```
+
+---
+
+## 🏛️ 设计
 
 The install name is a text field, including when its first token resembles a
 decimal or hexadecimal number. The captures also retain ordinary byte-range,

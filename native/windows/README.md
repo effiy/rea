@@ -1,4 +1,18 @@
-# Windows native controls
+---
+title: Windows Native Controls
+tags: [windows, native, node-api, addon, pe, ntfs]
+category: native
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Windows Native Controls
+
+## 💡 概述
 
 REA ships one Windows x64 Node-API 8 addon. Users do not compile it or install
 another runtime. Ghidra and a full JDK remain bring-your-own prerequisites.
@@ -8,12 +22,9 @@ The package owns the artifact path. The loader checks the package version,
 ABI, Node-API compatibility, PE architecture, and SHA-256 before loading it.
 There is no environment override for loading an arbitrary native module.
 
-## Build
+---
 
-The artifact lane requires Linux, MinGW-w64 `x86_64-w64-mingw32-g++`,
-`x86_64-w64-mingw32-dlltool`, and `tar`. It never installs these commands.
-Node-API headers are reused from the build cache or downloaded from the
-pinned official Node release with its published SHA-256 checked.
+## 🚀 快速开始
 
 ```sh
 npm run build:windows-native
@@ -26,7 +37,9 @@ its manifest. Release CI builds both, and `prepublishOnly` rejects a missing,
 stale, mismatched, or wrong-architecture artifact. A development tarball built
 without this lane reports Windows native controls as unavailable.
 
-## Boundaries
+---
+
+## ⚡ 功能
 
 - Opaque Node objects carry a native type tag, resource kind, and closed state.
   A pathname, serialized object, or forged handle cannot grant authority.
@@ -85,6 +98,10 @@ Windows failures retain their constraint, requested coordinate, Win32 code,
 and system message. Unsupported filesystems and reparse paths are distinct
 from OS access denial and missing packaged controls.
 
+---
+
+## 🏛️ 设计
+
 Ordinary drive-absolute paths accept backslashes, forward slashes, or mixed
 separators. File identity retains the original requested spelling. Separator
 translation does not resolve dot components, repeated separators, or extend
@@ -99,7 +116,20 @@ alias policy. Mounted-folder paths that report a reparse tag are rejected by
 component admission; broader namespace variants remain unverified. Preserve
 requested and final handle coordinates rather than treating them as one identity.
 
-## Real verification
+---
+
+## ⚙️ 技术栈
+
+The artifact lane requires Linux, MinGW-w64 `x86_64-w64-mingw32-g++`,
+`x86_64-w64-mingw32-dlltool`, and `tar`. It never installs these commands.
+Node-API headers are reused from the build cache or downloaded from the
+pinned official Node release with its published SHA-256 checked.
+
+---
+
+## 📊 指标
+
+Real verification commands:
 
 ```powershell
 npm run verify:windows-native

@@ -1,7 +1,25 @@
-# Bring-your-own WABT
+---
+title: Bring-Your-Own WABT
+tags: [wabt, wasm, webassembly, wat, byo]
+category: third-party
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Bring-Your-Own WABT
+
+## 💡 概述
 
 REA does not bundle, patch, install or download WABT executables. Operators select
 an existing tool directory with `REA_WABT_BIN_DIRECTORY`.
+
+---
+
+## 🔗 资源
 
 - Upstream: https://github.com/WebAssembly/wabt
 - Admitted release: https://github.com/WebAssembly/wabt/releases/tag/1.0.42
@@ -10,12 +28,20 @@ an existing tool directory with `REA_WABT_BIN_DIRECTORY`.
 - Runtime tools: `wasm-validate`, `wasm-objdump`, `wasm2wat`.
 - Verification fixture compiler: `wat2wasm` (not a runtime prerequisite).
 
+---
+
+## ⚡ 功能
+
 The adapter requires every version banner to report `1.0.42` and records the
 resolved executable path, SHA-256, exact banner and arguments for each tool.
 Version admission identifies the supported producer profile; it does not certify
 publisher authenticity. Operators remain responsible for trusted executable
 provenance. No `wasm-interp`, decompiler, replacement binary parser or target
 execution is used.
+
+---
+
+## 📊 指标
 
 Real verification on macOS arm64 used the unchanged official
 `wabt-1.0.42-macos-arm64.tar.gz` release asset, whose SHA-256 was checked against

@@ -1,4 +1,18 @@
-# Source-built re-export load command
+---
+title: Source-Built Re-Export Load Command
+tags: [macos, mach-o, reexport, dylib, otool]
+category: testing
+created: "2024-01-01"
+updated: "2026-10-20"
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Source-Built Re-Export Load Command
+
+## 💡 概述
 
 Captured from the adjacent C sources using the macOS arm64 host Xcode tools:
 
